@@ -102,3 +102,6 @@
 % We also reconfigure the abstract from memoir's default (which doesn't sit on
 % its own page)
 \renewenvironment{abstract}{\chapter{Abstract}}{\cleardoublepage}
+
+% Memoir only numbers down to sections by default. We need to go deeper.
+\setsecnumdepth{subsubsection}
