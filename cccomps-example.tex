@@ -1,0 +1,334 @@
+% Template for Carleton comps papers
+% Author: Andrew Gainer-Dewar, 2013
+\documentclass[twoside]{memoir}
+\usepackage{cccomps}
+
+% The Latin Modern font is a modernized replacement for the classic
+% Computer Modern. Feel free to replace this with a different font package.
+\usepackage{lmodern}
+
+% Load in biblatex
+% To use a different bibliography style, just change "numeric" to
+% your preferred style (mla for MLA style, alphabetic for Author-Year
+% style, etc.) There are a lot of options; check the BibLaTeX documentation.
+\usepackage[backend=biber,style=numeric]{biblatex}
+% Select the bibliography file
+\addbibresource{sources-example.bib}
+
+% We frequently use the monospace style to represent code.
+% Rather than use the \texttt{} command all the time (which is
+% unsemantic and ugly to read), we define a new semantic command
+% \code{} which does this for us.
+\newcommand{\code}[1]{\texttt{#1}}
+
+% We'll use the TikZ diagramming language for an example
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{matrix, calc, arrows}
+\tikzset{node distance = 1.5cm, auto}
+\DeclareMathOperator{\coker}{coker}
+
+% The listings package handles typesetting nice code listings.
+% We set it up here with some nice options.
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\color{gray},
+  numbers=left,
+  breaklines=true,
+  breakatwhitespace=true,
+  numberstyle=\footnotesize,
+  stepnumber=2,
+  showstringspaces=false,
+}
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
+\title{Example comps project}
+\author{Lori T.~Jeremiah \and Ray B.~Langstrom} % The \and command takes care of putting the names side-by-side.
+\advisor{M.~Holmes}
+\dept{Mathemagical Inquiry}
+\date{February 31, 2014}
+
+\begin{document}
+% First, we go into "front matter" mode.
+% Among other things, this gives us Roman page numbers.
+\frontmatter
+
+% We tell LaTeX to make a title page.
+\maketitle
+
+% Then we do some front-matter business.
+\chapter{Dedication}
+We dedicate this project to Nicolas Bourbaki, whose mathematical acumen and personal warmth were invaluable resources to us.
+
+\begin{abstract}
+  The senior integrative exercise, or \enquote{Comps}, is part of every Carleton major and a graduation requirement.
+  The \code{cccomps} style and template provide a structure for writing Comps papers using the \LaTeX{} computer typesetting system.
+\end{abstract}
+
+% A Table of Contents is important!
+\tableofcontents
+
+% Include the list of figures and list of tables only if you actually *have*
+% figures and tables! (The * after each indicates that it should not be included
+% in the table of contents.)
+%\listoffigures*
+%\listoftables*
+
+% Next, we go into "main matter" mode.
+% This resets the page numbers and uses Arabic numerals.
+\mainmatter
+
+\chapter{Using the Comps template}
+\label{s:usingtemplate}
+So it's time to write up your Comps project!
+The Carleton \LaTeX{} Comps template is provided to help you do this efficiently and with a minimum of fuss.
+Good luck, and have fun!
+
+\section{Getting started with \LaTeX{}}
+\label{s:gettingstarted}
+If you aren't already familiar with the \LaTeX{} computer typesetting system, this isn't the right document for you.
+Check out the resources available to you through the Carleton \LaTeX{} workshop, in the following order:
+\begin{enumerate}
+\item
+  \enquote{Getting started with \LaTeX{}} is a quick-start guide designed to bring you from a state of zero knowledge to the point where you can write a basic document.
+
+\item
+  The \enquote{Math typesetting guide} will teach you how to use some of \LaTeX{}'s impressive math typesetting facilities.
+  This will be important if you're writing a comps paper in a mathematical discipline.
+
+\item
+  The \enquote{Text typesetting guide} will teach you how to use \LaTeX{} for formatting and typesetting text.
+  This includes typeface formatting, sectioning, lists (like this one), internal cross-references, and other concerns.
+
+\item
+  The \enquote{Citation guide} will teach you how to use the Bib\LaTeX{} bibliography processor to simplify your citation process.
+  Your Comps paper should include \emph{lots} of citations to the literature, so this will be very valuable!
+\end{enumerate}
+
+\section{Getting started with the template}
+\label{s:template}
+Once you know your way around \LaTeX{}, you'll be ready to get started with the \code{cccomps} package.
+First, you'll need to download it.
+Be sure that \code{cccomps.sty} (the \enquote{style file}), \code{cccomps.tex} (the \enquote{template}), and \code{sources.bib} (the \enquote{bibliographic database}) end up in the same directory so \LaTeX{} will know how to find them.
+
+Once you have these files, open \code{cccomps.tex} in your preferred \LaTeX{} editor.
+Read it through, including the comments.
+Once you've gotten a sense of the structure of the file, you can start to add in your own content.
+
+\section{The structure of the template}
+\label{s:structure}
+The Comps template can be decomposed into several key components.
+
+\subsection{The preamble}
+\label{s:preamble}
+The first component of the template is the \enquote{preamble}, which sets up the \LaTeX{} environment and defines important properties of the document as a whole.
+The preamble of the Comps template appears in \cref{lst:cccompspreamble}.
+For editing purposes, the most important part of the preamble is the final five lines, which define the metadata for the document.
+Go ahead and replace their contents with your title, name, and so on.
+
+\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template preamble, label=lst:cccompspreamble, language=TeX, firstline=1, firstnumber=1, lastline=22]{cccomps.tex}
+
+The preamble is also the place where you should load any packages you need to, for example, change the font used in your paper or use the TikZ diagramming language.
+
+\subsection{The front matter}
+\label{s:frontmatter}
+After the preamble comes the \enquote{front matter}, which is the part of the document before the body text.
+The front matter of the Comps template appears in \cref{lst:cccompsfront}.
+
+\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template front matter, label=lst:cccompsfront, language=TeX, firstline=24, firstnumber=24, lastline=48]{cccomps.tex}
+
+If you wish to add a dedication, do so here; otherwise, delete the \code{\textbackslash{}chapter\{Dedication\}} line and the one which follows it.
+You can also add an acknowledgments section or any other front matter by adding a new \code{\textbackslash{}chapter\{\}}.
+
+You should also write an abstract for your paper.
+In keeping with the conventions of mathematical writing, this abstract should be no longer than three hundred words, and it should outline the main results and methods of your paper.
+It should not contain any references or citations.
+
+Finally, if you wish for your paper to have a list of figures or a list of tables, uncomment the appropriate line by removing the \code{\%}.
+
+\subsection{The main matter}
+\label{s:mainmatter}
+After the front matter comes the \enquote{main matter}, which is where you'll write the body of your paper.
+The main matter of the Comps template appears in \cref{lst:cccompsmain}.
+
+\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template main matter, label=lst:cccompsmain, language=TeX, firstline=50, firstnumber=50, lastline=71]{cccomps.tex}
+
+Your paper should be organized into \code{chapter}s, each of which may have \code{section}s, \code{subsection}s, and even \code{subsubsection}s.
+(If it's really long, you may split your document up into \code{part}s, each of which has several \code{chapter}s.)
+See the \enquote{Text formatting guide} for more information about document structuring and internal references.
+
+If you wish to have any appendices, use the \code{\textbackslash{}appendix} command to switch \LaTeX{} into appendix mode.
+Any \code{chapter} which you write after calling \code{\textbackslash{}appendix} will automatically be an appendix.
+If you do \emph{not} wish to have appendices, just remove the line that calls \code{\textbackslash{}appendix}.
+
+\subsection{The back matter}
+\label{s:backmatter}
+After the main matter comes the \enquote{back matter}, the final section of the document.
+The back matter of the Comps template appears in \cref{lst:cccompsback}.
+
+\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template back matter, label=lst:cccompsback, language=TeX, firstline=73, firstnumber=73, lastline=76]{cccomps.tex}
+
+You should not need to modify anything in the back matter.
+The \code{\textbackslash{}printbibliography} command tells Bib\LaTeX{} where to put your bibliography, but this is configured elsewhere.
+
+\section{\LaTeX{} fanciness}
+\label{s:fanciness}
+The code shown in \cref{s:structure} is all you need to write a Carleton Comps paper.
+Notice, for example, that there is no code to specify how the page headers, chapter titles, or title page are formatted, and nothing is done to make chapters start on front-facing pages---this is all handled automatically by the style and class files!
+
+In addition, thanks to \LaTeX{}, you can easily include beautiful mathematics, professional-looking tables, and other delights in your paper.
+In \cref{s:example}, we'll demonstrate some of these techniques and their results.
+
+\chapter{Examples of \LaTeX{} typography}
+\label{s:example}
+\section{Mathematical typesetting}
+\label{s:math}
+\LaTeX{} is extremely good at typesetting mathematics.
+The \enquote{Math typesetting guide} has lots of information about how to achieve great results with many kinds of math; we present here some examples to illustrate the point.
+
+Here is an important definition from \cite[\S 4.1]{hend}:
+\begin{subequations}
+  \label{eq:gcidef}
+  \begin{align}
+    Z_{\mathcal{F}}^{\Gamma} (\gamma) &= \sum_{\substack{n \geq 0 \\ \sigma \in \mathfrak{S}_{n}}} \frac{1}{n!} \abs*{ \operatorname{fix} \mathcal{F} \sbrac{ \sigma \cdot \gamma } } p_{1}^{\sigma_{1}} p_{2}^{\sigma_{@}} \dots p_{n}^{\sigma_{n}} \label{eq:gcidefperm} \\
+    &= \sum_{\substack{n \geq 0 \\ \lambda \vdash n}} \frac{\abs*{ \operatorname{fix} \mathcal{F} \sbrac{\sigma(\lambda) \cdot \gamma} }}{z_{\lambda}} p_{1}^{\lambda_{1}} p_{2}^{\lambda_{2}} \dots p_{n}^{\lambda_{n}}. \label{eq:gcidefpart}
+  \end{align}
+\end{subequations}
+
+We would be remiss to omit Stokes' theorem from any discussion of elegant typography:
+\begin{equation}
+  \label{eq:stokes}
+  \int_{\partial \Omega} \omega = \int_{\omega} \operatorname{d} \omega.
+\end{equation}
+
+If we allow ourselves the luxury of drawing some commutative diagrams, we can obtain the following important result:
+\begin{lemma*}[Snake lemma]
+  Suppose that the following diagram commutes in some abelian category:
+  \begin{center}
+    \begin{tikzpicture}
+      \node (0l) {$0$};
+      \node (A') [right of=0l] {$A'$};
+      \node (B') [right of=A'] {$B'$};
+      \node (C') [right of=B'] {$C'$};
+      \node (A) [above of=A'] {$A$};
+      \node (B) [above of=B'] {$B$};
+      \node (C) [above of=C'] {$C$};
+      \node (0r) [right of=C] {$0$};
+
+      \draw [->] (0l) to (A');
+      \draw [->] (A') to node {$f'$} (B');
+      \draw [->] (B') to node {$g'$} (C');
+      \draw [->] (A) to node {$a$} (A');
+      \draw [->] (A) to node {$f$} (B);
+      \draw [->] (B) to node {$b$} (B');
+      \draw [->] (B) to node {$g$} (C);
+      \draw [->] (C) to node {$c$} (C');
+      \draw [->] (C) to (0r);
+    \end{tikzpicture}
+  \end{center}
+  Then there is a map $d: \ker c \to \coker a$ such that the following diagram commutes and all sequences are exact:
+    \begin{center}
+    \begin{tikzpicture}
+      \matrix[matrix of math nodes,column sep={60pt,between origins},row
+      sep={60pt,between origins},nodes={asymmetrical rectangle}] (s)
+      {
+        &|[name=ka]| \ker a &|[name=kb]| \ker b &|[name=kc]| \ker c \\
+        %
+        &|[name=A]| A' &|[name=B]| B' &|[name=C]| C' &|[name=01]| 0 \\
+        %
+        |[name=02]| 0 &|[name=A']| A &|[name=B']| B &|[name=C']| C \\
+        %
+        &|[name=ca]| \coker a &|[name=cb]| \coker b &|[name=cc]| \coker c \\
+      };
+      \draw[->] (ka) edge (A)
+      (kb) edge (B)
+      (kc) edge (C)
+      (A) edge node {$f$} (B)
+      (B) edge node {$g$} (C)
+      (C) edge (01)
+      (A) edge node {$a$} (A')
+      (B) edge node {$b$} (B')
+      (C) edge node {$c$} (C')
+      (02) edge (A')
+      (A') edge node {$f'$} (B')
+      (B') edge node {$g'$} (C')
+      (A') edge (ca)
+      (B') edge (cb)
+      (C') edge (cc)
+      ;
+      \draw[->,gray] (ka) edge (kb)
+      (kb) edge (kc)
+      (ca) edge (cb)
+      (cb) edge (cc)
+      ;
+      \draw[->,gray,rounded corners] (kc) -| node[auto,text=black,pos=.7]
+      {$d$} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
+      ($(02.west)+(-.5,0)$) |- (ca);
+    \end{tikzpicture}
+  \end{center}
+\end{lemma*}
+
+We also should use some matrices.
+\begin{theorem*}
+  Let $F_{n}$ be the $n$th Fibonacci number.
+  Then we have
+  \begin{equation*}
+    \begin{bmatrix}
+      F_{n+2} \\
+      F_{n+1}
+    \end{bmatrix} =
+    \begin{bmatrix}
+      1 & 1 \\
+      1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+      F_{n+1} \\
+      F_{n}
+    \end{bmatrix}
+  \end{equation*}
+  and thus
+  \begin{equation*}
+    \begin{bmatrix}
+      1 & 1 \\
+      1 & 0
+    \end{bmatrix}^{n} =
+    \begin{bmatrix}
+      F_{n+1} & F_{n} \\
+      F_{n} & F_{n-1}
+    \end{bmatrix}.
+  \end{equation*}
+\end{theorem*}
+
+\section{Tables}
+\LaTeX{} is also great at tables, especially in conjuction with the \code{booktabs} package.
+See \cref{tab:example} for an example with multi-column labels and intra-column rules.
+Don't go too crazy with these things, though---less is more when it comes to table layout!
+
+\begin{table}[ph]
+  \centering
+  \begin{tabular}{l l l l l}
+    \toprule
+    & \multicolumn{2}{c}{Revenue} & \multicolumn{2}{c}{Expenses} \\
+    \cmidrule(lr){2-3}
+    \cmidrule(lr){4-5}
+    District & Dec. & YTD & Dec. & YTD \\ \midrule
+    North & 57 & 1024 & 12 & 590 \\
+    South & 100 & 2032 & 94 & 1502 \\
+    \bottomrule
+  \end{tabular}
+  \caption{An example of a fancy table}
+  \label{tab:example}
+\end{table}
+
+% If you want to include appendices, just use the \appendix command
+% and then make chapters as normal
+\appendix
+\chapter{Useful resources}
+There's a huge community of \LaTeX{} authors and users on the Internet, who have developed an amazing array of resources to help you learn.
+
+% Finally, we switch over to "back matter" mode for the bibliography
+\backmatter
+\printbibliography
+\end{document}
