@@ -130,7 +130,7 @@ The preamble of the Comps template appears in \cref{lst:cccompspreamble}.
 For editing purposes, the most important part of the preamble is the final five lines, which define the metadata for the document.
 Go ahead and replace their contents with your title, name, and so on.
 
-\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template preamble, label=lst:cccompspreamble, language=TeX, firstline=1, firstnumber=1, lastline=22]{cccomps.tex}
+\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template preamble, label=lst:cccompspreamble, language=TeX, firstline=1, firstnumber=1, lastline=24]{cccomps.tex}
 
 The preamble is also the place where you should load any packages you need to, for example, change the font used in your paper or use the TikZ diagramming language.
 
@@ -139,7 +139,7 @@ The preamble is also the place where you should load any packages you need to, f
 After the preamble comes the \enquote{front matter}, which is the part of the document before the body text.
 The front matter of the Comps template appears in \cref{lst:cccompsfront}.
 
-\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template front matter, label=lst:cccompsfront, language=TeX, firstline=24, firstnumber=24, lastline=48]{cccomps.tex}
+\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template front matter, label=lst:cccompsfront, language=TeX, firstline=26, firstnumber=26, lastline=50]{cccomps.tex}
 
 If you wish to add a dedication, do so here; otherwise, delete the \code{\textbackslash{}chapter\{Dedication\}} line and the one which follows it.
 You can also add an acknowledgments section or any other front matter by adding a new \code{\textbackslash{}chapter\{\}}.
@@ -155,7 +155,7 @@ Finally, if you wish for your paper to have a list of figures or a list of table
 After the front matter comes the \enquote{main matter}, which is where you'll write the body of your paper.
 The main matter of the Comps template appears in \cref{lst:cccompsmain}.
 
-\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template main matter, label=lst:cccompsmain, language=TeX, firstline=50, firstnumber=50, lastline=71]{cccomps.tex}
+\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template main matter, label=lst:cccompsmain, language=TeX, firstline=52, firstnumber=52, lastline=73]{cccomps.tex}
 
 Your paper should be organized into \code{chapter}s, each of which may have \code{section}s, \code{subsection}s, and even \code{subsubsection}s.
 (If it's really long, you may split your document up into \code{part}s, each of which has several \code{chapter}s.)
@@ -170,7 +170,7 @@ If you do \emph{not} wish to have appendices, just remove the line that calls \c
 After the main matter comes the \enquote{back matter}, the final section of the document.
 The back matter of the Comps template appears in \cref{lst:cccompsback}.
 
-\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template back matter, label=lst:cccompsback, language=TeX, firstline=73, firstnumber=73, lastline=76]{cccomps.tex}
+\lstinputlisting[float=p,frame=single, caption=The Carleton Comps template back matter, label=lst:cccompsback, language=TeX, firstline=75, firstnumber=75]{cccomps.tex}
 
 You should not need to modify anything in the back matter.
 The \code{\textbackslash{}printbibliography} command tells Bib\LaTeX{} where to put your bibliography, but this is configured elsewhere.
