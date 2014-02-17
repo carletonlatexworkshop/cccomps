@@ -51,7 +51,22 @@
 % The amsthm package lets us set up theorem-like environments
 \RequirePackage{amsthm}
 
-% We then need to actually create those environments
+% The booktabs package facilitates high-quality table formatting.
+\RequirePackage{booktabs}
+
+% The hyperref package sets up PDF hyperlinks and other fanciness.
+% WARNING: THIS MUST BE THE LAST PACKAGE LOAD
+\RequirePackage{hyperref}
+
+% The cleveref package handles a lot of fanciness with internal cross-references.
+% Curiously, it has to come *after* hyperref.
+\RequirePackage[capitalize]{cleveref}
+\crefname{equation}{equation}{equations}
+\Crefname{equation}{Equation}{Equations}
+
+%% DEFINE COMMANDS
+
+% We create some theorem-like environments
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
@@ -79,19 +94,7 @@
 \newtheorem{note}[theorem]{Note}
 \newtheorem*{note*}{Note}
 
-% The booktabs package facilitates high-quality table formatting.
-\RequirePackage{booktabs}
-
-% The hyperref package sets up PDF hyperlinks and other fanciness.
-% WARNING: THIS MUST BE THE LAST PACKAGE LOAD
-\RequirePackage{hyperref}
-
-% The cleveref package handles a lot of fanciness with internal cross-references.
-% Curiously, it has to come *after* hyperref.
-\RequirePackage[capitalize]{cleveref}
-\crefname{equation}{equation}{equations}
-\Crefname{equation}{Equation}{Equations}
-
+% We define two new titling commands
 \newcommand{\advisor}[1]{\gdef\@advisor{#1}}
 \newcommand{\dept}[1]{\gdef\@dept{#1}}
 
